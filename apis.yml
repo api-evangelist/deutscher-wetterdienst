@@ -1,0 +1,50 @@
+aid: deutscher-wetterdienst
+name: Deutscher Wetterdienst
+type: Index
+specificationVersion: '0.23'
+created: '2026-08-20'
+modified: '2026-08-20'
+url: https://raw.githubusercontent.com/api-evangelist/deutscher-wetterdienst/refs/heads/main/apis.yml
+description: Deutscher Wetterdienst (DWD) is Germany's national meteorological service, a federal agency under the
+  Ministry for Digital and Transport, responsible for weather and climate services, warnings, and the national climate
+  archive. Its geospatial surface is an OGC-standard GeoServer at maps.dwd.de serving forecast, radar, warning and
+  climate layers to any WMS or WFS client without a key.
+x-ogc-member:
+  level: Catalyst
+  member_type: Government
+  country: Germany
+  source: https://portal.ogc.org/services/srv_active_members_csv_new.php
+tags:
+- Geospatial
+- OGC
+- WMS
+- WFS
+- Open Access
+- GIS
+common:
+- type: Website
+  url: https://maps.dwd.de/
+apis:
+- aid: deutscher-wetterdienst:ogc-web-services
+  name: Deutscher Wetterdienst OGC Web Services (WMS / WFS)
+  description: 'OGC-standard web services served from a GeoServer instance. Verified anonymously on 2026-08-20:
+    a WMS 1.3.0 GetCapabilities document declaring 193 layers and a WFS 2.0.0 GetCapabilities document declaring
+    61 feature types returned HTTP 200 and is saved here verbatim. These GetCapabilities documents are the machine-readable
+    contract for this surface — there is no OpenAPI for the classic OGC services.'
+  humanURL: https://maps.dwd.de/
+  baseURL: https://maps.dwd.de/geoserver/ows
+  tags:
+  - Geospatial
+  - OGC
+  - WMS
+  - WFS
+  - Open Access
+  properties:
+  - type: GetCapabilities
+    url: openapi/deutscher-wetterdienst-wms-capabilities.xml
+  - type: WMS
+    url: https://maps.dwd.de/geoserver/ows?service=WMS&request=GetCapabilities&version=1.3.0
+  - type: GetCapabilities
+    url: openapi/deutscher-wetterdienst-wfs-capabilities.xml
+  - type: WFS
+    url: https://maps.dwd.de/geoserver/ows?service=WFS&request=GetCapabilities&version=2.0.0
